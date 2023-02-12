@@ -44,7 +44,7 @@ class User < ApplicationRecord
   def liked_photos
     my_likes = self.likes
     
-    array_of_photo_ids = Array.new
+    array_of_photo_ids = Array.new #Could've used map_relation_to_array here
 
     my_likes.each do |a_like|
       array_of_photo_ids.push(a_like.photo_id)
@@ -131,7 +131,7 @@ class User < ApplicationRecord
     return matching_users
   end
 
-  def feed
+  def feed 
     array_of_photo_ids = Array.new
 
     my_leaders = self.leaders
